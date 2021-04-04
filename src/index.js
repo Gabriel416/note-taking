@@ -4,8 +4,10 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+// If you want to test server locally use http://localhost:4000/
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
+  uri: 'https://note-taking-server.herokuapp.com/',
   cache: new InMemoryCache()
 });
 
