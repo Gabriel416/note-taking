@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/note-taking-client/static/css/main.154db91f.chunk.css",
+    "main.js": "/note-taking-client/static/js/main.6912d377.chunk.js",
+    "main.js.map": "/note-taking-client/static/js/main.6912d377.chunk.js.map",
+    "runtime-main.js": "/note-taking-client/static/js/runtime-main.738f4c63.js",
+    "runtime-main.js.map": "/note-taking-client/static/js/runtime-main.738f4c63.js.map",
+    "static/js/2.0569e70d.chunk.js": "/note-taking-client/static/js/2.0569e70d.chunk.js",
+    "static/js/2.0569e70d.chunk.js.map": "/note-taking-client/static/js/2.0569e70d.chunk.js.map",
+    "static/js/3.53c68b53.chunk.js": "/note-taking-client/static/js/3.53c68b53.chunk.js",
+    "static/js/3.53c68b53.chunk.js.map": "/note-taking-client/static/js/3.53c68b53.chunk.js.map",
+    "index.html": "/note-taking-client/index.html",
+    "static/css/main.154db91f.chunk.css.map": "/note-taking-client/static/css/main.154db91f.chunk.css.map",
+    "static/js/2.0569e70d.chunk.js.LICENSE.txt": "/note-taking-client/static/js/2.0569e70d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.738f4c63.js",
+    "static/js/2.0569e70d.chunk.js",
+    "static/css/main.154db91f.chunk.css",
+    "static/js/main.6912d377.chunk.js"
+  ]
+}
