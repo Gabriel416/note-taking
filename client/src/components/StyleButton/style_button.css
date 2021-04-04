@@ -1,0 +1,26 @@
+.RichEditor-controls {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.RichEditor-styleButton {
+  max-height: 25px;
+  cursor: pointer;
+  padding: 8px 10px;
+  margin: 10px;
+  border-radius: 50px;
+  background: var(--white);
+  box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px var(--white);
+}
+
+.RichEditor-activeButton {
+  max-height: 25px;
+  padding: 8px 10px;
+  margin: 10px;
+  border-radius: 50px;
+  background: var(--primary);
+  box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px var(--white);
+  color: var(--white);
+}

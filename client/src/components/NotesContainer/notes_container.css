@@ -1,0 +1,11 @@
+.notes_container_wrapper .DraftEditor-root {
+  border: none;
+  min-height: 50px;
+  max-height: 50px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.active-post {
+  color: var(--primary);
+}
