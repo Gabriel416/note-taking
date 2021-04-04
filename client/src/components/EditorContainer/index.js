@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
+import { useMutation } from '@apollo/client';
 import { Editor, EditorState, RichUtils, convertFromRaw, convertToRaw } from 'draft-js';
 
 import BlockStyleControls from '../BlockStyleControls';
 import InlineStyleControls from '../InlineStyleControls';
 
 import { EDITOR_STYLE_MAP } from '../../constants';
+import { CREATE_NOTE, UPDATE_NOTE } from '../../Mutations';
 
 import './editor_container.css';
 
-
-const EditorContainer = ({ selectedNote, setSelectedNote }) => {
+const EditorContainer = ({ refetch, selectedNote, setSelectedNote }) => {
     const editor = useRef(null);
     const [loading, setLoading] = useState(false);
     const [successMsg, setSuccessMsg] = useState('');
@@ -17,9 +18,11 @@ const EditorContainer = ({ selectedNote, setSelectedNote }) => {
     const [editorState, setEditorState] = useState(
         EditorState.createEmpty()
     );
+    const [createNote] = useMutation(CREATE_NOTE);
+    const [updateNote] = useMutation(UPDATE_NOTE);
 
     useEffect(() => {
-        focusEditor()
+        focusEditor();
     }, []);
 
     useEffect(() => {
@@ -78,8 +81,23 @@ const EditorContainer = ({ selectedNote, setSelectedNote }) => {
     }
 
     const save = (contentState) => {
-        const body = JSON.stringify(contentState);
-        // save body
+        const request = {
+            variables: {
+                body: JSON.stringify(contentState)
+            }
+        }
+
+        if (selectedNote) {
+            return updateNote({
+                ...request,
+                variables: {
+                    ...request.variables,
+                    id: selectedNote.id
+                }
+            });
+        }
+
+        return createNote(request);
     }
 
     const saveNote = async () => {
@@ -91,6 +109,7 @@ const EditorContainer = ({ selectedNote, setSelectedNote }) => {
             try {
                 await save(contentState);
                 setSuccessMsg('Successfully saved note!');
+                refetch();
             } catch (e) {
                 console.log(e, 'e')
                 setErrorMsg('Error saving note :(')
