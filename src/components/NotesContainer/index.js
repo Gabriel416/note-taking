@@ -30,7 +30,7 @@ const NotesContainer = ({
 
     const renderNotes = () => {
         if (loading || mutationLoading || networkStatus === NetworkStatus.refetch) {
-            return Array.from(Array(notes.length)).map((_, i) => <List className="box" key={i} />)
+            return Array.from(Array(notes.length ? notes.length : 3)).map((_, i) => <List className="box" key={i} />)
         } else if (error) {
             return <p>{`Error! ${error}`}</p>
         }
